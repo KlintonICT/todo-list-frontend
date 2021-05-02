@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, Flex, Text, HStack, VStack, Spacer, Spinner, Checkbox, Collapse, useDisclosure } from '@chakra-ui/react';
 import { DeleteIcon, ChevronUpIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
-import SubtaskForm from './SubtaskForm';
+import Subtask from './Subtask';
 interface IProps {
   todo: ITodo;
   onDeleteTodo: (todo_id: string) => void;
@@ -10,6 +10,7 @@ interface IProps {
 
 const TodoItem = ({ todo, onDeleteTodo }: IProps) => {
   const { isOpen, onToggle } = useDisclosure();
+
   const [isDeletingTodo, setDeletingTodo] = useState(false);
 
   const onClickDeleteTodo = () => {
@@ -48,9 +49,7 @@ const TodoItem = ({ todo, onDeleteTodo }: IProps) => {
 
         {/* Hidden subtasks */}
         <Collapse in={isOpen} animateOpacity>
-          <Box px={7} mt={5} mb={2}>
-            <SubtaskForm {...{ todo_id: todo.id }} />
-          </Box>
+          <Subtask {...{ todo_id: todo.id, subtaskList: todo.subtasks }} />
         </Collapse>
       </Box>
     </>

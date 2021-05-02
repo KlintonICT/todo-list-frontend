@@ -5,13 +5,16 @@ import { HttpUtil, ROUTE_API } from '../utils/http-util';
 
 interface IProps {
   todo_id: string;
+  subtasks: ISubtask[];
+  setSubtasks: (subtasks: ISubtask[]) => void;
 }
 
-const SubtaskForm = ({ todo_id }: IProps) => {
+const SubtaskForm = ({ todo_id, subtasks, setSubtasks }: IProps) => {
   const onSubmit = (title: string, setSubmitting: { (isSubmitting: boolean): void }) => {
     HttpUtil.post(ROUTE_API.subtask, { title, todo_id })
       .then((response) => {
-        console.log(response.data.subtask);
+        const newSubtask = response.data.subtask;
+        setSubtasks([...subtasks, newSubtask]);
         setSubmitting(false);
       })
       .catch((error) => {
