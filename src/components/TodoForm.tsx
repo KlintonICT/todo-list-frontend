@@ -2,7 +2,6 @@ import { HStack, Input, Button } from '@chakra-ui/react';
 import { Form, Field, Formik, FieldProps } from 'formik';
 
 import { HttpUtil, ROUTE_API } from '../utils/http-util';
-
 interface IProps {
   todos: ITodo[];
   setTodos: (todos: ITodo[]) => void;
@@ -16,8 +15,8 @@ const TodoForm = ({ todos, setTodos }: IProps) => {
         setTodos([...todos, todo]);
         setSubmitting(false);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log('Creating todo item: ', error);
         setSubmitting(false);
       });
   };
