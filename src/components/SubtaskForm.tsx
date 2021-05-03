@@ -1,3 +1,4 @@
+import { SetStateAction } from 'react';
 import { InputGroup, Input, InputRightElement, Button } from '@chakra-ui/react';
 import { Form, Field, Formik, FieldProps } from 'formik';
 
@@ -6,7 +7,7 @@ import { HttpUtil, ROUTE_API } from '../utils/http-util';
 interface IProps {
   todo_id: string;
   subtasks: ISubtask[];
-  setSubtasks: (subtasks: ISubtask[]) => void;
+  setSubtasks: (subtasks: SetStateAction<ISubtask[]>) => void;
 }
 
 const SubtaskForm = ({ todo_id, subtasks, setSubtasks }: IProps) => {

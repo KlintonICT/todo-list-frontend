@@ -1,3 +1,4 @@
+import { SetStateAction } from 'react';
 import { Box } from '@chakra-ui/react';
 import { HttpUtil, ROUTE_API } from '../utils/http-util';
 
@@ -5,7 +6,7 @@ import SubtaskItem from './SubtaskItem';
 
 interface IProps {
   subtasks: ISubtask[];
-  setSubtasks: (subtasks: ISubtask[]) => void;
+  setSubtasks: (subtasks: SetStateAction<ISubtask[]>) => void;
 }
 
 const SubtaskList = ({ subtasks, setSubtasks }: IProps) => {

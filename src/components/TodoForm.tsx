@@ -1,10 +1,11 @@
+import { SetStateAction } from 'react';
 import { HStack, Input, Button } from '@chakra-ui/react';
 import { Form, Field, Formik, FieldProps } from 'formik';
 
 import { HttpUtil, ROUTE_API } from '../utils/http-util';
 interface IProps {
   todos: ITodo[];
-  setTodos: (todos: ITodo[]) => void;
+  setTodos: (todos: SetStateAction<ITodo[]>) => void;
 }
 
 const TodoForm = ({ todos, setTodos }: IProps) => {

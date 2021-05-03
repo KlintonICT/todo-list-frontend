@@ -26,8 +26,6 @@ const TodoItem = ({ todo, onDeleteTodo, onChangeTodoStatus }: IProps) => {
   }
 
   useEffect(() => {
-    // update todo status if all subtasks completed or re-open todo if one subtask is unchecked
-    onChangeTodoStatus(todo.id, checkedTodo ? 'completed' : 'pending');
     // finish loading after updating todo status
     setUpdatingTodoStatus(false);
   }, [checkedTodo, setUpdatingTodoStatus]);

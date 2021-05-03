@@ -1,10 +1,11 @@
+import { SetStateAction } from 'react';
 import { HttpUtil, ROUTE_API } from '../utils/http-util';
 
 import TodoItem from './TodoItem';
 
 interface IProps {
   todos: ITodo[];
-  setTodos: (todos: ITodo[]) => void;
+  setTodos: (todos: SetStateAction<ITodo[]>) => void;
 }
 
 const TodoList = ({ todos, setTodos }: IProps) => {

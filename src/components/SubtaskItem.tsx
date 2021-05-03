@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, SetStateAction } from 'react';
 import { Box, Flex, Spacer, Spinner, Checkbox } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 
@@ -6,7 +6,7 @@ import { HttpUtil, ROUTE_API } from '../utils/http-util';
 interface IProps {
   subtask: ISubtask;
   subtasks: ISubtask[];
-  setSubtasks: (subtasks: ISubtask[]) => void;
+  setSubtasks: (subtasks: SetStateAction<ISubtask[]>) => void;
   onDeleteSubtask: (subtask_id: string) => void;
 }
 
