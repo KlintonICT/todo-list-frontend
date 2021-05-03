@@ -38,6 +38,7 @@ const TodoForm = ({ todos, setTodos }: IProps) => {
                   placeholder="What to do?"
                   colorScheme="red.100"
                   borderColor="red.100"
+                  isRequired
                 />
               )}
             </Field>

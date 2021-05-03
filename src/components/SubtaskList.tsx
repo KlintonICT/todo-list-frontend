@@ -25,7 +25,7 @@ const SubtaskList = ({ subtasks, setSubtasks }: IProps) => {
       {subtasks.length > 0 && (
         <Box mb={5}>
           {subtasks.map((subtask: ISubtask) => (
-            <SubtaskItem key={subtask.id} {...{ subtask, onDeleteSubtask }} />
+            <SubtaskItem key={subtask.id} {...{ subtask, subtasks, setSubtasks, onDeleteSubtask }} />
           ))}
         </Box>
       )}

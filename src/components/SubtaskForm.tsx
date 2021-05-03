@@ -40,6 +40,7 @@ const SubtaskForm = ({ todo_id, subtasks, setSubtasks }: IProps) => {
                   pr="6rem"
                   placeholder="What are the steps?"
                   backgroundColor="rgb(255,255,255, 0.2)"
+                  isRequired
                 />
                 <InputRightElement width="6rem">
                   <Button h="1.75rem" size="sm" colorScheme="red" type="submit" isLoading={isSubmitting}>

@@ -19,10 +19,25 @@ const TodoList = ({ todos, setTodos }: IProps) => {
       });
   };
 
+  const onChangeTodoStatus = (todo_id: string, status: string) => {
+    // update todo status
+    HttpUtil.patch(`${ROUTE_API.todo}/${todo_id}`, { status })
+      .then(() => {
+        const updatedTodos = [...todos].map((todo: ITodo) => {
+          if (todo.id === todo_id) todo.status = status;
+          return todo;
+        });
+        setTodos(updatedTodos);
+      })
+      .catch((error) => {
+        console.log('Updating todo status: ', error);
+      });
+  };
+
   return (
     <>
       {todos.map((todo: ITodo) => (
-        <TodoItem {...{ todo, onDeleteTodo }} key={todo.id} />
+        <TodoItem {...{ todo, onDeleteTodo, onChangeTodoStatus }} key={todo.id} />
       ))}
     </>
   );

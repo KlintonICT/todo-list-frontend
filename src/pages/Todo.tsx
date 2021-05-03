@@ -32,7 +32,7 @@ const Todo = () => {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          width={['100%', '60%', '50%', '40%', '30%']}
+          width={['98%', '60%', '50%', '40%', '30%']}
         >
           <Heading as="h5" mb={5}>
             Todo App
